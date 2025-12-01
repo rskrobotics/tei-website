@@ -1,0 +1,210 @@
+---
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+    lang: "pl" | "en";
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Get contact email from environment variable
+const contactEmail = import.meta.env.PUBLIC_CONTACT_EMAIL || "biuro@tei.net.pl";
+
+// GDPR text based on language
+const gdprText =
+    lang === "pl"
+        ? "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu"
+        : "I consent to the processing of my personal data for contact purposes";
+---
+
+<div class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+        <h2 class="card-title text-2xl mb-4">
+            {t("contact.formTitle")}
+        </h2>
+
+        <!-- FormSubmit form -->
+        <form
+            id="contact-form"
+            action={`https://formsubmit.co/${contactEmail}`}
+            method="POST"
+            class="space-y-4"
+        >
+            <!-- Honeypot field (hidden - bots will fill this, humans won't see it) -->
+            <input
+                type="text"
+                name="_honey"
+                style="display:none"
+                tabindex="-1"
+                autocomplete="off"
+            />
+
+            <!-- FormSubmit configuration -->
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div class="form-control">
+                <label class="label" for="name">
+                    <span class="label-text">{t("contact.form.name")}</span>
+                </label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder={t("contact.namePlaceholder")}
+                    class="input input-bordered w-full"
+                    required
+                />
+            </div>
+
+            <div class="form-control">
+                <label class="label" for="email">
+                    <span class="label-text">{t("contact.form.email")}</span>
+                </label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder={t("contact.emailPlaceholder")}
+                    class="input input-bordered w-full"
+                    required
+                />
+            </div>
+
+            <div class="form-control">
+                <label class="label" for="phone">
+                    <span class="label-text">{t("contact.form.phone")}</span>
+                </label>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder={t("contact.phonePlaceholder")}
+                    class="input input-bordered w-full"
+                />
+            </div>
+
+            <div class="form-control">
+                <label class="label" for="message">
+                    <span class="label-text">{t("contact.form.message")}</span>
+                </label>
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder={t("contact.messagePlaceholder")}
+                    class="textarea textarea-bordered h-32 w-full"
+                    required></textarea>
+            </div>
+
+            <!-- GDPR Consent Checkbox -->
+            <div class="form-control">
+                <label class="label cursor-pointer justify-start gap-3">
+                    <input
+                        type="checkbox"
+                        name="gdpr_consent"
+                        class="checkbox checkbox-primary"
+                        required
+                    />
+                    <span class="label-text">{gdprText}</span>
+                </label>
+            </div>
+
+            <div class="form-control mt-6">
+                <button
+                    type="submit"
+                    class="btn btn-primary w-full"
+                    id="submit-btn"
+                >
+                    {t("contact.form.submit")}
+                </button>
+            </div>
+
+            <!-- Success/Error message -->
+            <div id="form-message" class="hidden"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const submitBtn = document.getElementById(
+        "submit-btn",
+    ) as HTMLButtonElement;
+    const formMessage = document.getElementById(
+        "form-message",
+    ) as HTMLDivElement;
+
+    if (form && submitBtn && formMessage) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // Show loading state
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = "...";
+            formMessage.classList.add("hidden");
+
+            try {
+                // Get form data
+                const formData = new FormData(form);
+
+                // Submit via AJAX
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        Accept: "application/json",
+                    },
+                });
+
+                // Get language for messages
+                const currentLang = document.documentElement.lang as
+                    | "pl"
+                    | "en";
+
+                if (response.ok) {
+                    // Success message
+                    const successText =
+                        currentLang === "pl"
+                            ? "Wiadomość została wysłana! Skontaktujemy się wkrótce."
+                            : "Message sent successfully! We'll contact you soon.";
+
+                    formMessage.className = "alert alert-success mt-4";
+                    formMessage.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>${successText}</span>
+                    `;
+
+                    // Reset form
+                    form.reset();
+                } else {
+                    throw new Error("Form submission failed");
+                }
+            } catch (error) {
+                // Error message
+                const currentLang = document.documentElement.lang as
+                    | "pl"
+                    | "en";
+                const errorText =
+                    currentLang === "pl"
+                        ? "Wystąpił błąd. Spróbuj ponownie lub skontaktuj się bezpośrednio."
+                        : "An error occurred. Please try again or contact us directly.";
+
+                formMessage.className = "alert alert-error mt-4";
+                formMessage.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>${errorText}</span>
+                `;
+            } finally {
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText || "Submit";
+            }
+        });
+    }
+</script>

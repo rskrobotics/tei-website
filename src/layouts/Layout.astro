@@ -1,0 +1,178 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    ogImage?: string;
+}
+
+// Determine language from URL path
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const lang = isEnglish ? "en" : "pl";
+const t = useTranslations(lang);
+
+const {
+    title = t("meta.siteName"),
+    description = t("meta.siteDescription"),
+    keywords = t("meta.keywords"),
+    ogImage = "/og-image.jpg",
+} = Astro.props;
+
+const fullTitle =
+    title === t("meta.siteName")
+        ? t("meta.brandName")
+        : `${title} | ${t("meta.brandName")}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Generate alternate URL for the other language
+const alternateLang = lang === "pl" ? "en" : "pl";
+let alternatePath = "";
+if (lang === "pl") {
+    // Polish to English: add /en prefix
+    alternatePath =
+        Astro.url.pathname === "/" ? "/en/" : `/en${Astro.url.pathname}`;
+} else {
+    // English to Polish: remove /en prefix
+    alternatePath = Astro.url.pathname.replace(/^\/en/, "") || "/";
+}
+const alternateURL = new URL(alternatePath, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang} data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Prevent theme flash -->
+        <script is:inline>
+            const theme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", theme);
+        </script>
+
+        <!-- Primary Meta Tags -->
+        <title>{fullTitle}</title>
+        <meta name="title" content={fullTitle} />
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Language Alternates -->
+        <link
+            rel="alternate"
+            hreflang="pl"
+            href={lang === "pl" ? canonicalURL : alternateURL}
+        />
+        <link
+            rel="alternate"
+            hreflang="en"
+            href={lang === "en" ? canonicalURL : alternateURL}
+        />
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href={lang === "pl" ? canonicalURL : alternateURL}
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+        <meta
+            property="og:locale"
+            content={lang === "pl" ? "pl_PL" : "en_GB"}
+        />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={fullTitle} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+        <!-- Additional SEO -->
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content={lang === "pl" ? "Polish" : "English"} />
+        <meta name="author" content="F.H.U. TEI Wojciech Kasprzyk" />
+    </head>
+    <body class="min-h-screen flex flex-col">
+        <Header />
+        <main class="flex-grow">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style is:global>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        font-size: 18px;
+    }
+
+    body {
+        font-family:
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            "Open Sans",
+            "Helvetica Neue",
+            sans-serif;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .text-sm {
+        font-size: 1rem;
+    }
+
+    .text-base {
+        font-size: 1.1rem;
+    }
+
+    .text-lg {
+        font-size: 1.25rem;
+    }
+
+    .text-xl {
+        font-size: 1.5rem;
+    }
+</style>

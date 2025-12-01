@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "siteName": "F.H.U. TEI Wojciech Kasprzyk",
+    "brandName": "TEI",
+    "siteDescription": "Professional metal processing - robotic welding, CNC laser cutting, powder coating, hydraulic press",
+    "keywords": "welding, robotic welding, laser cutting, CNC laser, powder coating, hydraulic press, metal processing, gates, fences, stairs, balustrades"
+  },
+  "nav": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "funding": "Funding"
+  },
+  "footer": {
+    "companyName": "F.H.U. TEI Wojciech Kasprzyk",
+    "invoiceData": "Invoice Data",
+    "address": "Company Headquarters",
+    "addressLine1": "ul. Wiejska 6",
+    "addressLine2": "38-540 Zagórz",
+    "contactInfo": "Contact",
+    "phone": "Phone",
+    "email": "E-mail",
+    "productionHall": "Production Facility",
+    "productionLocation": "Weremień 39, 38-600 Lesko",
+    "followUs": "Follow Us",
+    "services": "Services",
+    "roboticWelding": "Robotic Welding",
+    "welding": "MIG/MAG/TIG Welding",
+    "powderCoating": "Powder Coating",
+    "laserCutting": "CNC Laser Cutting",
+    "hydraulicPress": "Hydraulic Press",
+    "copyright": "All rights reserved",
+    "websiteMadeBy": "Website made by"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "polish": "Polish",
+    "english": "English",
+    "toggle": "Change language"
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "TEI - gates, fences, stairs, balustrades and metal elements",
+    "description": "For years we have been manufacturing metal elements used in industry, agriculture and households",
+    "experienceYears": "25 years of experience in metal processing",
+    "heroTitle": "Metal Processing Plant",
+    "heroSubtitle": "25 years of experience",
+    "aboutTitle": "About Us",
+    "aboutText": "Our offer is very extensive. We make almost anything that can be made from metal - from accessories for agricultural machinery, through enclosures for electric and gas meters, to roof structures, gates, fences, stairs and furniture.",
+    "qualityText": "We constantly improve the quality of our products through investments in specialized metal processing equipment.",
+    "servicesTitle": "Machinery Park",
+    "productsTitle": "What We Manufacture",
+    "gardenMachinery": "Garden machinery accessories",
+    "gardenMachineryDesc": "Accessories for tillers, garden machinery and agricultural equipment.",
+    "furniture": "Metal furniture",
+    "furnitureDesc": "Metal furniture for industrial and residential applications.",
+    "customProjects": "Custom projects",
+    "customProjectsDesc": "Custom projects according to client specifications.",
+    "residentialElements": "Elements for residential complexes",
+    "residentialElementsDesc": "Enclosures for electric and gas meters and structures for residential complexes.",
+    "gates": "Gates and fences",
+    "gatesDesc": "Production of gates, fences, stairs and balustrades made from high-quality steel.",
+    "stairs": "Stairs and balustrades",
+    "roofStructures": "Roof Structures",
+    "roofStructuresDesc": "Fabrication of roof structures and other structural elements.",
+    "roboticWeldingDesc": "Precise welding using modern robotic welding systems.",
+    "laserCuttingDesc": "Laser cutter with 3D module for precise cutting of sheets and profiles.",
+    "powderCoatingDesc": "Durable and aesthetic powder coating resistant to weather conditions.",
+    "hydraulicPressDesc": "Processing and forming of metal elements using a hydraulic press.",
+    "materialsTitle": "Materials",
+    "materialsIntro": "We offer products made from various metals including:",
+    "materialBlackSteel": "Black steel",
+    "materialStainlessSteel": "Stainless steel (inox)",
+    "materialSpecialSteel": "Special steels",
+    "materialAluminum": "Aluminum",
+    "ctaTitle": "Interested in cooperation?",
+    "ctaText": "Contact us to discuss the details of your project",
+    "ctaButton": "Contact",
+    "whyUsTitle": "Why Choose Us?",
+    "whyUsExperienceTitle": "Experience and Expertise",
+    "whyUsExperienceDesc": "25 years of experience allows us to recommend the best technical and technological solutions for your project",
+    "whyUsQualityTitle": "Durability and Quality",
+    "whyUsQualityDesc": "Products made from high-quality materials, built to last for years",
+    "whyUsMachineryTitle": "Modern Machinery Park",
+    "whyUsMachineryDesc": "Robotic welding, 3D CNC laser, powder coating - advanced technologies for precise results"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "description": "Discover our projects"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Get in touch with us",
+    "formTitle": "Contact Form",
+    "namePlaceholder": "John Doe",
+    "emailPlaceholder": "john@example.com",
+    "phonePlaceholder": "+48 123 456 789",
+    "messagePlaceholder": "Your message...",
+    "locationTitle": "Production Facility Location",
+    "mapTitle": "Production facility location map",
+    "formNotice": "Form ready. Backend will be integrated in a later phase.",
+    "form": {
+      "name": "Name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "message": "Message",
+      "submit": "Send",
+      "sending": "Sending...",
+      "success": "Message has been sent!",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "funding": {
+    "title": "Funding",
+    "description": "Support programs we have participated in"
+  },
+  "services": {
+    "laserTitle": "CNC Laser Cutter",
+    "laserDesc": "We have a modern laser cutter with a 3D module that enables very precise cutting of metal sheets. We offer hole cutting services in profiles.",
+    "powderTitle": "Powder Coating",
+    "powderDesc": "We have a modern powder coating facility that allows us to obtain a durable, aesthetic and weather-resistant coating on painted elements.",
+    "weldingTitle": "Welding",
+    "weldingDesc": "MIG/MAG/TIG welding and robotic welding. We weld black steel, stainless steel and aluminum.",
+    "pressTitle": "Hydraulic Press",
+    "pressDesc": "We have a hydraulic press for processing and forming metal elements."
+  }
+}

@@ -1,0 +1,167 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { useTranslations } from "../i18n/utils";
+
+const lang = "pl";
+const t = useTranslations(lang);
+
+// Get preview images (first image from each category)
+import { readdir } from "node:fs/promises";
+import { join } from "node:path";
+
+const galleryPath = join(process.cwd(), "public", "gallery");
+
+async function getPreviewImage(category: string) {
+    try {
+        const categoryPath = join(galleryPath, category);
+        const files = await readdir(categoryPath);
+        const imageFiles = files
+            .filter((file) => /\.(jpg|jpeg|png|webp)$/i.test(file))
+            .filter((file) => !file.includes("-thumb.webp"))
+            .sort(); // Sort alphabetically for consistent ordering
+
+        if (imageFiles.length > 0) {
+            return `/gallery/${category}/${imageFiles[0]}`;
+        }
+        return null;
+    } catch (error) {
+        return null;
+    }
+}
+
+async function getImageCount(category: string) {
+    try {
+        const categoryPath = join(galleryPath, category);
+        const files = await readdir(categoryPath);
+        return files
+            .filter((file) => /\.(jpg|jpeg|png|webp)$/i.test(file))
+            .filter((file) => !file.includes("-thumb.webp")).length;
+    } catch (error) {
+        return 0;
+    }
+}
+
+const categories = [
+    {
+        slug: "schody-balustrady-ogrodzenia",
+        title: "Schody, balustrady i ogrodzenia",
+        description: "Solidne konstrukcje stalowe do wnętrz i na zewnątrz",
+    },
+    {
+        slug: "meble",
+        title: "Meble metalowe",
+        description: "Nowoczesne i trwałe meble ze stali",
+    },
+    {
+        slug: "nasze-produkty",
+        title: "Nasze produkty",
+        description: "Szerokie portfolio wyrobów metalowych",
+    },
+    {
+        slug: "kostrukcje",
+        title: "Konstrukcje",
+        description: "Konstrukcje stalowe na wymiar",
+    },
+];
+
+// Get preview images and counts for all categories
+const categoriesWithData = await Promise.all(
+    categories.map(async (cat) => ({
+        ...cat,
+        previewImage: await getPreviewImage(cat.slug),
+        count: await getImageCount(cat.slug),
+    })),
+);
+---
+
+<Layout title={t("gallery.title")} description={t("gallery.description")}>
+    <div
+        class="hero min-h-[30vh] relative"
+        style="background-image: url('/welding.jpg'); background-size: cover; background-position: center;"
+    >
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="hero-content text-center relative z-10">
+            <h1 class="text-5xl font-bold text-white drop-shadow-lg">
+                {t("gallery.title")}
+            </h1>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-16">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                Wybierz kategorię
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                {
+                    categoriesWithData
+                        .filter((cat) => cat.count > 0)
+                        .map((category) => (
+                            <a
+                                href={`/gallery/${category.slug}`}
+                                class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group"
+                            >
+                                <figure class="h-64 overflow-hidden">
+                                    {category.previewImage ? (
+                                        <picture>
+                                            <source
+                                                srcset={category.previewImage.replace(
+                                                    /\.(jpg|jpeg|png)$/i,
+                                                    "-thumb.webp",
+                                                )}
+                                                type="image/webp"
+                                            />
+                                            <img
+                                                src={category.previewImage}
+                                                alt={category.title}
+                                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                                loading="lazy"
+                                                width="600"
+                                                height="400"
+                                            />
+                                        </picture>
+                                    ) : (
+                                        <img
+                                            src="/welding.jpg"
+                                            alt={category.title}
+                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                            loading="lazy"
+                                        />
+                                    )}
+                                </figure>
+                                <div class="card-body">
+                                    <h3 class="card-title text-2xl">
+                                        {category.title}
+                                    </h3>
+                                    <p class="text-base-content/70">
+                                        {category.description}
+                                    </p>
+                                    <div class="card-actions justify-between items-center mt-4">
+                                        <span class="badge badge-outline">
+                                            {category.count} zdjęć
+                                        </span>
+                                        <button class="btn btn-primary btn-sm">
+                                            Zobacz więcej
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="h-5 w-5"
+                                                viewBox="0 0 20 20"
+                                                fill="currentColor"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        ))
+                }
+            </div>
+        </div>
+    </div>
+</Layout>

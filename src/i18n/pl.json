@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "siteName": "F.H.U. TEI Wojciech Kasprzyk",
+    "brandName": "TEI",
+    "siteDescription": "Profesjonalna obróbka metali - spawanie robotyczne, wycinanie laserowe CNC, malowanie proszkowe, prasa hydrauliczna",
+    "keywords": "spawanie, roboty spawalnicze, wycinanie laserowe, laser CNC, malowanie proszkowe, prasa hydrauliczna, obróbka metali, bramy, ogrodzenia, schody, balustrady"
+  },
+  "nav": {
+    "home": "Strona główna",
+    "gallery": "Galeria",
+    "contact": "Kontakt",
+    "funding": "Dofinansowania"
+  },
+  "footer": {
+    "companyName": "F.H.U. TEI Wojciech Kasprzyk",
+    "invoiceData": "Dane do faktury",
+    "address": "Siedziba firmy",
+    "addressLine1": "ul. Wiejska 6",
+    "addressLine2": "38-540 Zagórz",
+    "contactInfo": "Kontakt",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "productionHall": "Hala produkcyjna",
+    "productionLocation": "Weremień 39, 38-600 Lesko",
+    "followUs": "Śledź nas",
+    "services": "Usługi",
+    "roboticWelding": "Spawanie robotyczne",
+    "welding": "Spawanie MIG/MAG/TIG",
+    "powderCoating": "Malowanie proszkowe",
+    "laserCutting": "Wycinanie laserowe CNC",
+    "hydraulicPress": "Prasa hydrauliczna",
+    "copyright": "Wszelkie prawa zastrzeżone",
+    "websiteMadeBy": "Stronę wykonał"
+  },
+  "theme": {
+    "light": "Jasny",
+    "dark": "Ciemny",
+    "toggle": "Przełącz motyw"
+  },
+  "language": {
+    "polish": "Polski",
+    "english": "Angielski",
+    "toggle": "Zmień język"
+  },
+  "home": {
+    "title": "Strona główna",
+    "welcome": "TEI - bramy, ogrodzenia, schody, balustrady i elementy metalowe",
+    "description": "Od lat zajmujemy się produkcją elementów metalowych wykorzystywanych w przemyśle, gospodarstwach rolnych i domowych",
+    "experienceYears": "25 lat doświadczenia w obróbce metali",
+    "heroTitle": "Zakład obróbki metalu",
+    "heroSubtitle": "25 lat doświadczenia",
+    "aboutTitle": "O nas",
+    "aboutText": "Nasza oferta jest bardzo rozbudowana. Wykonujemy niemal wszystko, co można zrobić z metalu - od osprzętu do maszyn rolniczych, poprzez zabudowy liczników, aż po konstrukcje dachowe, bramy, ogrodzenia, schody i meble.",
+    "qualityText": "Nieustannie podnosimy jakość oferowanych produktów poprzez inwestycje w wyspecjalizowany sprzęt do obróbki metali.",
+    "servicesTitle": "Park maszynowy",
+    "productsTitle": "Co produkujemy",
+    "gardenMachinery": "Osprzęt do maszyn ogrodniczych",
+    "gardenMachineryDesc": "Osprzęt do glebogryzarek, maszyn ogrodniczych i urządzeń rolniczych.",
+    "furniture": "Meble metalowe",
+    "furnitureDesc": "Meble metalowe do zastosowań przemysłowych i domowych.",
+    "customProjects": "Projekty na wymiar",
+    "customProjectsDesc": "Realizacja projektów na wymiar według specyfikacji klienta.",
+    "residentialElements": "Elementy dla osiedli mieszkaniowych",
+    "residentialElementsDesc": "Zabudowy liczników elektrycznych i gazowych oraz konstrukcje dla osiedli mieszkaniowych.",
+    "gates": "Bramy i ogrodzenia",
+    "gatesDesc": "Produkcja bram, ogrodzeń, schodów i balustrad wykonanych z wysokiej jakości stali.",
+    "stairs": "Schody i balustrady",
+    "roofStructures": "Konstrukcje dachowe",
+    "roofStructuresDesc": "Wykonanie konstrukcji dachowych i innych elementów konstrukcyjnych.",
+    "roboticWeldingDesc": "Precyzyjne spawanie z wykorzystaniem nowoczesnych robotów spawalniczych.",
+    "laserCuttingDesc": "Wypalarka laserowa z modułem 3D do precyzyjnego cięcia blach i profili.",
+    "powderCoatingDesc": "Trwałe i estetyczne malowanie proszkowe odporne na warunki zewnętrzne.",
+    "hydraulicPressDesc": "Obróbka i formowanie elementów metalowych za pomocą prasy hydraulicznej.",
+    "materialsTitle": "Materiały",
+    "materialsIntro": "Oferujemy wykonanie produktów z takich metali jak:",
+    "materialBlackSteel": "Stal czarna",
+    "materialStainlessSteel": "Stal nierdzewna (inox)",
+    "materialSpecialSteel": "Stale specjalne",
+    "materialAluminum": "Aluminium",
+    "ctaTitle": "Zainteresowany współpracą?",
+    "ctaText": "Skontaktuj się z nami, aby omówić szczegóły Twojego projektu",
+    "ctaButton": "Kontakt",
+    "whyUsTitle": "Dlaczego my?",
+    "whyUsExperienceTitle": "Doświadczenie i ekspertyza",
+    "whyUsExperienceDesc": "25 lat doświadczenia pozwala nam doradzić najlepsze rozwiązania techniczne i technologiczne dla Twojego projektu",
+    "whyUsQualityTitle": "Trwałość i jakość",
+    "whyUsQualityDesc": "Produkty wykonane z wysokiej jakości materiałów, zbudowane by służyć latami",
+    "whyUsMachineryTitle": "Nowoczesny park maszynowy",
+    "whyUsMachineryDesc": "Roboty spawalnicze, laser CNC 3D, malarnia proszkowa - zaawansowane technologie dla precyzyjnych rezultatów"
+  },
+  "gallery": {
+    "title": "Galeria",
+    "description": "Poznaj nasze realizacje"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Skontaktuj się z nami",
+    "formTitle": "Formularz kontaktowy",
+    "namePlaceholder": "Jan Kowalski",
+    "emailPlaceholder": "jan@example.com",
+    "phonePlaceholder": "+48 123 456 789",
+    "messagePlaceholder": "Twoja wiadomość...",
+    "locationTitle": "Lokalizacja hali produkcyjnej",
+    "mapTitle": "Mapa lokalizacji hali produkcyjnej",
+    "formNotice": "Formularz przygotowany. Backend zostanie zintegrowany w późniejszej fazie.",
+    "form": {
+      "name": "Imię i nazwisko",
+      "email": "Adres e-mail",
+      "phone": "Numer telefonu",
+      "message": "Wiadomość",
+      "submit": "Wyślij",
+      "sending": "Wysyłanie...",
+      "success": "Wiadomość została wysłana!",
+      "error": "Wystąpił błąd. Spróbuj ponownie."
+    }
+  },
+  "funding": {
+    "title": "Dofinansowania",
+    "description": "Programy wsparcia w których uczestniczyliśmy"
+  },
+  "services": {
+    "laserTitle": "Wypalarka laserowa CNC",
+    "laserDesc": "Posiadamy nowoczesną wypalarkę laserową z modułem 3D, która umożliwia bardzo precyzyjne cięcie blach. Oferujemy usługę wycinania otworów w profilach.",
+    "powderTitle": "Malowanie proszkowe",
+    "powderDesc": "Dysponujemy nowoczesną malarnią proszkową, która pozwala uzyskać trwałą, estetyczną i odporną na warunki zewnętrzne powłokę na malowanych elementach.",
+    "weldingTitle": "Spawanie",
+    "weldingDesc": "Spawanie MIG/MAG/TIG oraz spawanie zrobotyzowane. Spawamy stal czarną, stal nierdzewną oraz aluminium.",
+    "pressTitle": "Prasa hydrauliczna",
+    "pressDesc": "Dysponujemy prasą hydrauliczną do obróbki i formowania elementów metalowych."
+  }
+}

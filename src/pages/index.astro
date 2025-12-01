@@ -1,0 +1,538 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { useTranslations } from "../i18n/utils";
+
+const lang = "pl";
+const t = useTranslations(lang);
+---
+
+<Layout title={t("home.title")} description={t("home.description")}>
+    <!-- Hero Section - Simplified with Background -->
+    <div
+        class="hero min-h-[50vh] relative"
+        style="background-image: url('/welding.jpg'); background-size: cover; background-position: center;"
+    >
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="hero-content text-center relative z-10">
+            <div class="max-w-4xl">
+                <h1
+                    class="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg"
+                >
+                    {t("home.heroTitle")}
+                </h1>
+                <p
+                    class="text-2xl font-semibold text-primary mb-8 drop-shadow-lg"
+                >
+                    {t("home.heroSubtitle")}
+                </p>
+                <div class="flex gap-4 justify-center flex-wrap">
+                    <a href="/gallery" class="btn btn-primary btn-lg">
+                        {t("nav.gallery")}
+                    </a>
+                    <a
+                        href="/contact"
+                        class="btn btn-outline btn-lg bg-white bg-opacity-90 hover:bg-opacity-100"
+                    >
+                        {t("nav.contact")}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="bg-gradient-to-b from-base-200 to-base-300 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                {t("home.servicesTitle")}
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Robotic Welding -->
+                <div
+                    class="card bg-gradient-to-br from-primary/10 to-primary/5 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-t-4 border-primary"
+                >
+                    <div class="card-body items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-primary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-xl mb-3">
+                            {t("footer.roboticWelding")}
+                        </h3>
+                        <p class="text-sm opacity-70">
+                            {t("home.roboticWeldingDesc")}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Laser Cutting -->
+                <div
+                    class="card bg-gradient-to-br from-secondary/10 to-secondary/5 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-t-4 border-secondary"
+                >
+                    <div class="card-body items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-secondary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-xl mb-3">
+                            {t("footer.laserCutting")}
+                        </h3>
+                        <p class="text-sm opacity-70">
+                            {t("home.laserCuttingDesc")}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Powder Coating -->
+                <div
+                    class="card bg-gradient-to-br from-accent/10 to-accent/5 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-t-4 border-accent"
+                >
+                    <div class="card-body items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-accent"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-xl mb-3">
+                            {t("footer.powderCoating")}
+                        </h3>
+                        <p class="text-sm opacity-70">
+                            {t("home.powderCoatingDesc")}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hydraulic Press -->
+                <div
+                    class="card bg-gradient-to-br from-primary/10 to-secondary/10 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-t-4 border-primary"
+                >
+                    <div class="card-body items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-primary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-xl mb-3">
+                            {t("footer.hydraulicPress")}
+                        </h3>
+                        <p class="text-sm opacity-70">
+                            {t("home.hydraulicPressDesc")}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+            {t("home.productsTitle")}
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Gates & Fences -->
+            <div
+                class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group border-l-4 border-primary hover:border-l-8"
+            >
+                <div class="card-body">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-primary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7H5a2 2 0 00-2 2v9m0 0a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-2xl">
+                            {t("home.gates")}
+                        </h3>
+                    </div>
+                    <p class="opacity-80">
+                        {t("home.gatesDesc")}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Garden Machinery -->
+            <div
+                class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group border-l-4 border-secondary hover:border-l-8"
+            >
+                <div class="card-body">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-secondary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                ></path>
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-2xl">
+                            {t("home.gardenMachinery")}
+                        </h3>
+                    </div>
+                    <p class="opacity-80">
+                        {t("home.gardenMachineryDesc")}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Metal Furniture -->
+            <div
+                class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group border-l-4 border-accent hover:border-l-8"
+            >
+                <div class="card-body">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-accent"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-2xl">
+                            {t("home.furniture")}
+                        </h3>
+                    </div>
+                    <p class="opacity-80">
+                        {t("home.furnitureDesc")}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Custom Projects -->
+            <div
+                class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group border-l-4 border-primary hover:border-l-8"
+            >
+                <div class="card-body">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-primary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-2xl">
+                            {t("home.customProjects")}
+                        </h3>
+                    </div>
+                    <p class="opacity-80">
+                        {t("home.customProjectsDesc")}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Residential Elements -->
+            <div
+                class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group border-l-4 border-secondary hover:border-l-8"
+            >
+                <div class="card-body">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-secondary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-2xl">
+                            {t("home.residentialElements")}
+                        </h3>
+                    </div>
+                    <p class="opacity-80">
+                        {t("home.residentialElementsDesc")}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Roof Structures -->
+            <div
+                class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group border-l-4 border-accent hover:border-l-8"
+            >
+                <div class="card-body">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 text-accent"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-2xl">
+                            {t("home.roofStructures")}
+                        </h3>
+                    </div>
+                    <p class="opacity-80">
+                        {t("home.roofStructuresDesc")}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materials Section -->
+    <div class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">
+                {t("home.materialsTitle")}
+            </h2>
+            <p class="text-lg mb-6">
+                {t("home.materialsIntro")}
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-lg">
+                <span class="badge badge-lg badge-primary"
+                    >{t("home.materialBlackSteel")}</span
+                >
+                <span class="badge badge-lg badge-primary"
+                    >{t("home.materialStainlessSteel")}</span
+                >
+                <span class="badge badge-lg badge-primary"
+                    >{t("home.materialSpecialSteel")}</span
+                >
+                <span class="badge badge-lg badge-primary"
+                    >{t("home.materialAluminum")}</span
+                >
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-base-200 py-16">
+        <div class="container mx-auto px-4">
+            <div
+                class="card bg-primary text-primary-content shadow-2xl max-w-3xl mx-auto"
+            >
+                <div class="card-body items-center text-center">
+                    <h2 class="card-title text-3xl mb-4">
+                        {t("home.ctaTitle")}
+                    </h2>
+                    <p class="mb-6 text-lg">
+                        {t("home.ctaText")}
+                    </p>
+                    <div class="card-actions">
+                        <a href="/contact" class="btn btn-secondary btn-lg">
+                            {t("home.ctaButton")}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Us Section -->
+    <div class="bg-base-200 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                {t("home.whyUsTitle")}
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-8 w-8 text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        {t("home.whyUsExperienceTitle")}
+                    </h3>
+                    <p class="text-base opacity-80">
+                        {t("home.whyUsExperienceDesc")}
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-8 w-8 text-secondary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        {t("home.whyUsQualityTitle")}
+                    </h3>
+                    <p class="text-base opacity-80">
+                        {t("home.whyUsQualityDesc")}
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-8 w-8 text-accent"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                            ></path>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        {t("home.whyUsMachineryTitle")}
+                    </h3>
+                    <p class="text-base opacity-80">
+                        {t("home.whyUsMachineryDesc")}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

@@ -1,0 +1,105 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = "en";
+const t = useTranslations(lang);
+---
+
+<Layout title={t("funding.title")} description={t("funding.description")}>
+    <div
+        class="hero min-h-[30vh] relative"
+        style="background-image: url('/welding.jpg'); background-size: cover; background-position: center;"
+    >
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="hero-content text-center relative z-10">
+            <h1 class="text-5xl font-bold text-white drop-shadow-lg">
+                {t("funding.title")}
+            </h1>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-16">
+        <div class="max-w-3xl mx-auto">
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body">
+                    <div class="space-y-6">
+                        <p class="text-base">
+                            Project co-financed from the Regional Operational
+                            Program of Podkarpackie Voivodeship for the years
+                            2014-2020
+                        </p>
+
+                        <p class="text-sm opacity-70">
+                            (European Regional Development Fund)
+                        </p>
+
+                        <p class="text-sm opacity-70">
+                            for Priority Axis I "Competitive and innovative
+                            economy"
+                        </p>
+
+                        <p class="text-sm opacity-70">
+                            for action: 1.4. Support for SMEs, Sub-measure 1.4.1
+                            "Direct grants"
+                        </p>
+
+                        <div class="divider"></div>
+
+                        <div>
+                            <p class="font-semibold mb-2">Project Title:</p>
+                            <p class="text-sm opacity-80">
+                                Implementation of product innovation by Trading
+                                and Service Company "TEI" Wojciech Kasprzyk
+                            </p>
+                        </div>
+
+                        <div>
+                            <p class="font-semibold mb-2">
+                                Project Description:
+                            </p>
+                            <p class="text-sm opacity-80">
+                                The project involves the purchase of three
+                                machines necessary to achieve the project
+                                indicators, which include five new product and
+                                service offerings.
+                            </p>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold">
+                                    Implementation period:
+                                </p>
+                                <p class="opacity-70">
+                                    01.05.2020 - 31.12.2020
+                                </p>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Contract number:</p>
+                                <p class="opacity-70">
+                                    RPPK.01.04.01-18-0177/19-00
+                                </p>
+                                <p class="text-xs opacity-60">
+                                    (signed: 27.05.2020)
+                                </p>
+                            </div>
+                            <div>
+                                <p class="font-semibold">
+                                    Eligible expenditure:
+                                </p>
+                                <p class="opacity-70">202,500.00 PLN</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Co-financing:</p>
+                                <p class="opacity-70">141,750.00 PLN</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
